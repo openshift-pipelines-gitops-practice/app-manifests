@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-handson-backend
+  labels:
+    app.kubernetes.io/name: dev-handson-backend
+    app.kubernetes.io/part-of: dev-handson
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: dev-handson-backend
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: dev-handson-backend
+        app.kubernetes.io/part-of: dev-handson
+    spec:
+      containers:
+        - name: backend
+          image: dev-handson-backend:latest
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi

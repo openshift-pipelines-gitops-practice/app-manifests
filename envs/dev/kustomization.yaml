@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+namespace: dev-handson
+images:
+  - name: dev-handson-backend
+    newName: image-registry.openshift-image-registry.svc:5000/dev-handson/dev-handson-backend
+    newTag: "latest" # backend-image-tag
+  - name: dev-handson-frontend
+    newName: image-registry.openshift-image-registry.svc:5000/dev-handson/dev-handson-frontend
+    newTag: "latest" # frontend-image-tag

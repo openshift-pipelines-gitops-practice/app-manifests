@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: dev-handson-frontend
+  labels:
+    app.kubernetes.io/name: dev-handson-frontend
+    app.kubernetes.io/part-of: dev-handson
+spec:
+  to:
+    kind: Service
+    name: dev-handson-frontend
+    weight: 100
+  port:
+    targetPort: 3000
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect

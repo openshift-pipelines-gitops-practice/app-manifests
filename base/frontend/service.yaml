@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dev-handson-frontend
+  labels:
+    app.kubernetes.io/name: dev-handson-frontend
+    app.kubernetes.io/part-of: dev-handson
+spec:
+  selector:
+    app.kubernetes.io/name: dev-handson-frontend
+  ports:
+    - port: 3000
+      targetPort: 3000
+      protocol: TCP

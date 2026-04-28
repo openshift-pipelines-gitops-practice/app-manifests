@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: dev-handson-backend
+  labels:
+    app.kubernetes.io/name: dev-handson-backend
+    app.kubernetes.io/part-of: dev-handson
+spec:
+  to:
+    kind: Service
+    name: dev-handson-backend
+    weight: 100
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
