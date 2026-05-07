@@ -20,18 +20,18 @@ spec:
         - name: frontend
           image: dev-handson-frontend:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 3000
               protocol: TCP
           readinessProbe:
             httpGet:
               path: /
-              port: 8080
+              port: 3000
             initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /
-              port: 8080
+              port: 3000
             initialDelaySeconds: 10
             periodSeconds: 10
           resources:
