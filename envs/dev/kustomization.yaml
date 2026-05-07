@@ -10,4 +10,4 @@ images:
   - name: dev-handson-frontend
     newName: image-registry.openshift-image-registry.svc:5000/dev-handson-app/frontend-app
 
-    newTag: "2c1db574c0280175e2dee653a7e9f834e171e99f" # frontend-image-tag
+    newTag: "541cade4165eba1322071300f2c363db7437c429" # frontend-image-tag
