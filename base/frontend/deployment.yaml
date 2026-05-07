@@ -19,6 +19,9 @@ spec:
       containers:
         - name: frontend
           image: dev-handson-frontend:latest
+          env:
+            - name: NUXT_API_BASE_URL
+              value: "http://dev-handson-backend:8080"
           ports:
             - containerPort: 3000
               protocol: TCP
