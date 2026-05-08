@@ -6,7 +6,7 @@ namespace: dev-handson-app
 images:
   - name: dev-handson-backend
     newName: image-registry.openshift-image-registry.svc:5000/dev-handson-app/backend-app
-    newTag: "a2f3748244d194ec732638f32a6072eb857cb8cd" # backend-image-tag
+    newTag: "f241d66cab6217b75fad7ff8c93a839ccd402d56" # backend-image-tag
   - name: dev-handson-frontend
     newName: image-registry.openshift-image-registry.svc:5000/dev-handson-app/frontend-app
 
